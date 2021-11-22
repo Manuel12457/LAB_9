@@ -2,10 +2,7 @@ package com.example.lab_9.Daos;
 
 import com.example.lab_9.Beans.BContinente;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class ContinentesDao extends BaseDao{
@@ -21,7 +18,9 @@ public class ContinentesDao extends BaseDao{
              ResultSet rs = stmt.executeQuery(sql);) {
 
             while (rs.next()) {
-                BContinente continente = new BContinente(rs.getInt(1),rs.getString(2));
+                BContinente continente = new BContinente();
+                continente.setIdContinente(rs.getInt(1));
+                continente.setContinente(rs.getString(2));
                 listaContinentes.add(continente);
             }
 
@@ -31,6 +30,31 @@ public class ContinentesDao extends BaseDao{
 
         return listaContinentes;
 
+    }
+
+    public BContinente obtenerContinentePorId(int id) {
+
+        BContinente continente = new BContinente();
+
+        String sql = "SELECT * FROM lab9.continentes where idContinentes = ?;";
+
+        try (Connection conn = this.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);) {
+
+            pstmt.setInt(1, id);
+
+            try (ResultSet rs = pstmt.executeQuery();) {
+
+                if (rs.next()) {
+                    continente.setIdContinente(rs.getInt(1));
+                    continente.setContinente(rs.getString(2));
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return continente;
     }
 
 }

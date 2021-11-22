@@ -14,13 +14,13 @@ public class MenuPaisesDao extends BaseDao{
 
         String sql = "SELECT p.idPaises, p.nombre, p.poblacion, p.tamanho, c.nombre as 'continente' FROM lab9.paises p\n" +
                 "inner join lab9.continentes c on (p.Continentes_idContinentes = c.idContinentes)\n" +
-                "where p.Continentes_idContinentes = ?\n" +
+                "where p.Continentes_idContinentes like ?\n" +
                 "order by p.nombre;";
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
 
-            pstmt.setInt(1, idContinente);
+            pstmt.setString(1, "%" + idContinente + "%");
 
             try (ResultSet rs = pstmt.executeQuery();) {
 
@@ -31,7 +31,8 @@ public class MenuPaisesDao extends BaseDao{
                     pais.setPoblacion(rs.getLong(3));
                     pais.setTamanho(rs.getDouble(4));
 
-                    BContinente continente = new BContinente(idContinente,rs.getString(5));
+                    ContinentesDao continentesDao = new ContinentesDao();
+                    BContinente continente = continentesDao.obtenerContinentePorId(idContinente);
                     pais.setContinente(continente);
 
                     listaPaises.add(pais);
@@ -42,6 +43,38 @@ public class MenuPaisesDao extends BaseDao{
         }
 
         return listaPaises;
+
+    }
+
+    public BPais obtenerPaisPorId(int id) {
+
+        BPais pais = new BPais();
+
+        String sql = "select * from lab9.paises where idPaises = ?;";
+
+        try (Connection conn = this.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);) {
+
+            pstmt.setInt(1, id);
+
+            try (ResultSet rs = pstmt.executeQuery();) {
+
+                if (rs.next()) {
+                    pais.setIdPais(rs.getInt(1));
+                    pais.setNombre(rs.getString(2));
+                    pais.setPoblacion(rs.getLong(3));
+                    pais.setTamanho(rs.getDouble(4));
+
+                    ContinentesDao continentesDao = new ContinentesDao();
+                    BContinente continente = continentesDao.obtenerContinentePorId(rs.getInt(5));
+                    pais.setContinente(continente);
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return pais;
 
     }
 

@@ -49,6 +49,42 @@ public class MenuParticipantesDao extends BaseDao{
 
     }
 
+    public BParticipante obtenerParticipantePorId(int id) {
+
+        BParticipante participante = new BParticipante();
+
+        String sql = "SELECT * FROM lab9.participantes where idParticipantes = ?;";
+
+        try (Connection conn = this.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);) {
+
+            pstmt.setInt(1, id);
+
+            try (ResultSet rs = pstmt.executeQuery();) {
+
+                if (rs.next()) {
+                    participante.setIdParticipante(rs.getInt(1));
+                    participante.setNombre(rs.getString(2));
+                    participante.setApellido(rs.getString(3));
+                    participante.setEdad(rs.getInt(4));
+                    participante.setGenero(rs.getString(5));
+
+                    MenuPaisesDao menuPaisesDao = new MenuPaisesDao();
+                    BPais pais = menuPaisesDao.obtenerPaisPorId(rs.getInt(6));
+                    participante.setPais(pais);
+
+                    //Falta agregar la instancia alumno
+
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return participante;
+
+    }
+
     public String anhadirParticipante(BParticipante participante) {
 
         String sql = "insert into lab9.participantes (nombre, apellido, edad, genero, Paises_idPaises, Alumno_idAlumno)\n" +

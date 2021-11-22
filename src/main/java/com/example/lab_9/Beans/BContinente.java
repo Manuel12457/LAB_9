@@ -5,11 +5,6 @@ public class BContinente {
     private int idContinente;
     private String continente;
 
-    public BContinente(int idContinente, String continente) {
-        this.continente = continente;
-        this.idContinente = idContinente;
-    }
-
     public int getIdContinente() {
         return idContinente;
     }
