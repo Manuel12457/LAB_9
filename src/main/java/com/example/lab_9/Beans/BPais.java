@@ -6,8 +6,7 @@ public class BPais {
     private String nombre;
     private long poblacion;
     private double tamanho;
-    private String continente;
-    private int idContinente;
+    private BContinente continente;
 
     public int getIdPais() {
         return idPais;
@@ -41,19 +40,11 @@ public class BPais {
         this.tamanho = tamanho;
     }
 
-    public String getContinente() {
+    public BContinente getContinente() {
         return continente;
     }
 
-    public void setContinente(String continente) {
+    public void setContinente(BContinente continente) {
         this.continente = continente;
-    }
-
-    public int getIdContinente() {
-        return idContinente;
-    }
-
-    public void setIdContinente(int idContinente) {
-        this.idContinente = idContinente;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.lab_9.Daos;
 
+import com.example.lab_9.Beans.BContinente;
 import com.example.lab_9.Beans.BPais;
 
 import java.sql.*;
@@ -7,19 +8,19 @@ import java.util.ArrayList;
 
 public class MenuPaisesDao extends BaseDao{
 
-    public ArrayList<BPais> listarPaises(String continente) {
+    public ArrayList<BPais> listarPaises(int idContinente) {
 
         ArrayList<BPais> listaPaises = new ArrayList<>();
 
         String sql = "SELECT p.idPaises, p.nombre, p.poblacion, p.tamanho, c.nombre as 'continente' FROM lab9.paises p\n" +
                 "inner join lab9.continentes c on (p.Continentes_idContinentes = c.idContinentes)\n" +
-                "where 'continente' like ? \n" +
+                "where p.Continentes_idContinentes = ?\n" +
                 "order by p.nombre;";
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
 
-            pstmt.setString(1, continente);
+            pstmt.setInt(1, idContinente);
 
             try (ResultSet rs = pstmt.executeQuery();) {
 
@@ -29,7 +30,10 @@ public class MenuPaisesDao extends BaseDao{
                     pais.setNombre(rs.getString(2));
                     pais.setPoblacion(rs.getLong(3));
                     pais.setTamanho(rs.getDouble(4));
-                    pais.setContinente(rs.getString(5));
+
+                    BContinente continente = new BContinente(idContinente,rs.getString(5));
+                    pais.setContinente(continente);
+
                     listaPaises.add(pais);
                 }
             }
@@ -52,7 +56,8 @@ public class MenuPaisesDao extends BaseDao{
             pstmt.setString(1,pais.getNombre());
             pstmt.setLong(2, pais.getPoblacion());
             pstmt.setDouble(3, pais.getTamanho());
-            pstmt.setInt(4, pais.getIdContinente());
+
+            pstmt.setInt(4, pais.getContinente().getIdContinente());
 
             pstmt.executeUpdate();
             return "e";
@@ -75,7 +80,7 @@ public class MenuPaisesDao extends BaseDao{
             pstmt.setString(1,pais.getNombre());
             pstmt.setLong(2, pais.getPoblacion());
             pstmt.setDouble(3, pais.getTamanho());
-            pstmt.setInt(4, pais.getIdContinente());
+            pstmt.setInt(4, pais.getContinente().getIdContinente());
             pstmt.setInt(5, pais.getIdPais());
 
             pstmt.executeUpdate();
