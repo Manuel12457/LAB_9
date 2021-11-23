@@ -6,6 +6,7 @@ public class BAlumno {
     private String codigo;
     private double promedioPonderado;
     private String condicion;
+    private BUniversidad universidad;
 
     public int getIdAlumno() {
         return idAlumno;
@@ -37,5 +38,13 @@ public class BAlumno {
 
     public void setCondicion(String condicion) {
         this.condicion = condicion;
+    }
+
+    public BUniversidad getUniversidad() {
+        return universidad;
+    }
+
+    public void setUniversidad(BUniversidad universidad) {
+        this.universidad = universidad;
     }
 }

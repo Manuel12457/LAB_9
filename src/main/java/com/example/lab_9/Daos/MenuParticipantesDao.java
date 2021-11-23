@@ -34,8 +34,11 @@ public class MenuParticipantesDao extends BaseDao{
                 pais.setIdPais(rs.getInt(6));
                 participante.setPais(pais);
 
-                BAlumno alumno = new BAlumno();
-                alumno.setIdAlumno(rs.getInt(7));
+                AlumnosDao alumnosDao = new AlumnosDao();
+                BAlumno alumno = null;
+                if (rs.getString(7) != null) {
+                    alumno = alumnosDao.obtenerAlumnoPorId(rs.getInt(7));
+                }
                 participante.setAlumno(alumno);
 
                 listaParticipantes.add(participante);
@@ -73,7 +76,12 @@ public class MenuParticipantesDao extends BaseDao{
                     BPais pais = menuPaisesDao.obtenerPaisPorId(rs.getInt(6));
                     participante.setPais(pais);
 
-                    //Falta agregar la instancia alumno
+                    AlumnosDao alumnosDao = new AlumnosDao();
+                    BAlumno alumno = null;
+                    if (rs.getString(7) != null) {
+                         alumno = alumnosDao.obtenerAlumnoPorId(rs.getInt(7));
+                    }
+                    participante.setAlumno(alumno);
 
                 }
             }

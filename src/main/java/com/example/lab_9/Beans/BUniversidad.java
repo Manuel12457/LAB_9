@@ -7,7 +7,6 @@ public class BUniversidad {
     private int ranking;
     private String foto;
     private BPais pais;
-    private int alumnos;
 
     public int getIdUniversidad() {
         return idUniversidad;
@@ -49,11 +48,4 @@ public class BUniversidad {
         this.pais = pais;
     }
 
-    public int getAlumnos() {
-        return alumnos;
-    }
-
-    public void setAlumnos(int alumnos) {
-        this.alumnos = alumnos;
-    }
 }
