@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "PaisesServlet", urlPatterns = {"/PaisesServlet", "/Paises"})
+@WebServlet(name = "PaisesServlet", urlPatterns = {"/PaisesServlet", "/paises"})
 public class PaisesServlet extends HttpServlet {
 
     @Override
@@ -21,9 +21,9 @@ public class PaisesServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String action = request.getParameter("action") != null ? request.getParameter("action") : "listar";
-        String idContinenteStr = request.getParameter("idContinente") != null ? request.getParameter("idContinente") : "";
+        String idContinente = request.getParameter("idContinente") != null ? request.getParameter("idContinente") : "";
         String msg;
-        int idContinenteInt = Integer.parseInt(idContinenteStr);
+        int idContinenteInt = Integer.parseInt(idContinente);
 
         MenuPaisesDao menuPaisesDao = new MenuPaisesDao();
         ContinentesDao continentesDao = new ContinentesDao();
@@ -64,16 +64,15 @@ public class PaisesServlet extends HttpServlet {
 
                 if (bPaisBorrar != null) {
                     msg = menuPaisesDao.eliminarPais(idBorrarStr);
-                    if ( msg == "e") {
+                    if ( msg.equals("e")) {
                         //se enviará un mensaje de borrado exitoso: ?msg=be
                         response.sendRedirect(request.getContextPath() + "/listarPaises?msg=be");
                     } else {
                         response.sendRedirect(request.getContextPath() + "/listarPaises?msg=bne");
                     }
-                } else { //el jobId no existe
+                } else { //el iD no existe, se enviará un mensaje de borrado no exitoso: ?msg=bne
                     response.sendRedirect(request.getContextPath() + "/listarPaises?msg=bne");
                 }
-
                 break;
         }
     }
