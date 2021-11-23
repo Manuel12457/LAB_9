@@ -23,7 +23,7 @@ public class PaisesServlet extends HttpServlet {
         String action = request.getParameter("action") != null ? request.getParameter("action") : "listar";
         String idContinente = request.getParameter("idContinente") != null ? request.getParameter("idContinente") : "";
         String msg;
-        int idContinenteInt = Integer.parseInt(idContinente);
+//        int idContinenteInt = Integer.parseInt(idContinente);
 
         MenuPaisesDao menuPaisesDao = new MenuPaisesDao();
         ContinentesDao continentesDao = new ContinentesDao();
@@ -32,7 +32,7 @@ public class PaisesServlet extends HttpServlet {
 
         switch (action) {
             case "listar":
-                request.setAttribute("listpaises", menuPaisesDao.listarPaises(idContinenteInt));
+                request.setAttribute("listpaises", menuPaisesDao.listarPaises(idContinente));
                 request.setAttribute("listacontinentes", continentesDao.listarContinentes());
                 view = request.getRequestDispatcher("/listaPaises.jsp");
                 view.forward(request, response);
@@ -44,7 +44,7 @@ public class PaisesServlet extends HttpServlet {
                 break;
 
             case "formEditar":
-                String idEditarStr = request.getParameter("id") != null ? request.getParameter("id") : "";
+                String idEditarStr = request.getParameter("id_pais") != null ? request.getParameter("id_pais") : "";
                 int idEditarInt = Integer.parseInt(idEditarStr);
                 BPais bPaisEditar = menuPaisesDao.obtenerPaisPorId(idEditarInt);
 
@@ -63,7 +63,7 @@ public class PaisesServlet extends HttpServlet {
                 BPais bPaisBorrar = menuPaisesDao.obtenerPaisPorId(idBorrarInt);
 
                 if (bPaisBorrar != null) {
-                    msg = menuPaisesDao.eliminarPais(idBorrarStr);
+                    msg = menuPaisesDao.eliminarPais(idBorrarInt);
                     if ( msg.equals("e")) {
                         //se enviará un mensaje de borrado exitoso: ?msg=be
                         response.sendRedirect(request.getContextPath() + "/listarPaises?msg=be");

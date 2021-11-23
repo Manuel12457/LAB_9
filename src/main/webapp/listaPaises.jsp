@@ -21,19 +21,25 @@
             <div class="d-flex justify-content-center">
                 <div class="w-75">
 
-                    <div class="my-2">
-                        <a href="<%=request.getContextPath()%>/paises?action=crear" class="btn btn-info">Añadir Pais</a>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="my-2">
+                            <a href="<%=request.getContextPath()%>/paises?action=crear" class="btn btn-info">Añadir Pais</a>
+                        </div>
+
+                        <form method="POST" action="<%=request.getContextPath()%>/paises?action=filtrarpaises">
+                            <select class="form-select form-select-sm" name="id_continente">
+                                <% for (BContinente listcont : listacontinentes) { %>
+                                <option value="<%=listcont.getIdContinente() %>"><%=listcont.getContinente() %>
+                                </option>
+                                <% } %>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Buscar por Continente</button>
+                        </form>
+
                     </div>
 
-                    <form method="POST" action="<%=request.getContextPath()%>/paises?action=filtrarpaises">
-                        <select class="form-select form-select-sm" name="id_continente">
-                            <% for (BContinente listcont : listacontinentes) { %>
-                            <option value="<%=listcont.getIdContinente() %>"><%=listcont.getContinente() %>
-                            </option>
-                            <% } %>
-                        </select>
-                        <button type="submit" class="btn btn-primary">Buscar por Continente</button>
-                    </form>
+
+
 
                     <table class="table table-dark table-transparent table-hover">
                         <thead>
@@ -57,11 +63,13 @@
                                 </td>
                                 <td><%=listpais.getPoblacion()%>
                                 </td>
+                                <td><%=listpais.getTamanho()%>
+                                </td>
                                 <td>
-                                    <a href="<%=request.getContextPath()%>/paises?action=editar&id_banda=<%=listpais.getIdPais()%>"
+                                    <a href="<%=request.getContextPath()%>/paises?action=editar&id_pais=<%=listpais.getIdPais()%>"
                                        class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
                                 <td>
-                                    <a href="<%=request.getContextPath()%>/paises?action=borrar&id_banda=<%=listpais.getIdPais()%>"
+                                    <a href="<%=request.getContextPath()%>/paises?action=borrar&id_pais=<%=listpais.getIdPais()%>"
                                        class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
                             </tr>
                         </tbody>

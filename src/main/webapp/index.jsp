@@ -12,10 +12,9 @@
             </jsp:include>
 
             <div class="container text-center mt-2">
-                <h1>Bienvenido a Toda la Música</h1>
+                <h1>Bienvenido al proyecto del laboratorio 9</h1>
 
-                <p>Esta es una página donde puede conocer más sobre sus bandas y artistas favoritos e incluso actualizar nuestra
-                    base de datos con las nuevas estrellas.</p>
+                <p>Esta es una página donde puede conocer más sobre el registro de paises,participantes y  el consorcio mundial de universidades VIP .</p>
             </div>
 
 
