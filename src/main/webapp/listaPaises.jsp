@@ -1,4 +1,3 @@
-
 <%@ page import="com.example.lab_9.Beans.BPais" %>
 <%@ page import="com.example.lab_9.Beans.BContinente" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -27,11 +26,12 @@
                     </div>
 
                     <form method="POST" action="<%=request.getContextPath()%>/paises?action=filtrarpaises">
-                    <select class="form-select form-select-sm" name="id_continente">
-                        <% for (BContinente listcont : listacontinentes) { %>
-                        <option value="<%=listcont.getIdContinente() %>"><%=listcont.getContinente() %></option>
-                        <% } %>
-                    </select>
+                        <select class="form-select form-select-sm" name="id_continente">
+                            <% for (BContinente listcont : listacontinentes) { %>
+                            <option value="<%=listcont.getIdContinente() %>"><%=listcont.getContinente() %>
+                            </option>
+                            <% } %>
+                        </select>
                         <button type="submit" class="btn btn-primary">Buscar por Continente</button>
                     </form>
 
@@ -46,7 +46,7 @@
                         </thead>
 
                         <%
-                            for (BPais listpais: listpaises) {
+                            for (BPais listpais : listpaises) {
                         %>
 
                         <tbody>
@@ -57,8 +57,12 @@
                                 </td>
                                 <td><%=listpais.getPoblacion()%>
                                 </td>
-                                <td><a href="<%=request.getContextPath()%>/paises?action=editar&id_banda=<%=listpais.getIdPais()%>" class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
-                                <td><a  href="<%=request.getContextPath()%>/paises?action=borrar&id_banda=<%=listpais.getIdPais()%>" class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
+                                <td>
+                                    <a href="<%=request.getContextPath()%>/paises?action=editar&id_banda=<%=listpais.getIdPais()%>"
+                                       class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
+                                <td>
+                                    <a href="<%=request.getContextPath()%>/paises?action=borrar&id_banda=<%=listpais.getIdPais()%>"
+                                       class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
                             </tr>
                         </tbody>
 
