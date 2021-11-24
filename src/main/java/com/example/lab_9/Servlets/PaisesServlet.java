@@ -60,7 +60,7 @@ public class PaisesServlet extends HttpServlet {
                     view = request.getRequestDispatcher("/editarPaises.jsp");
                     view.forward(request, response);
                 } else {
-                    response.sendRedirect(request.getContextPath() + "/listaPaises");
+                    response.sendRedirect(request.getContextPath() + "/paises");
                 }
                 break;
 
@@ -74,13 +74,13 @@ public class PaisesServlet extends HttpServlet {
                     msg = menuPaisesDao.eliminarPais(idPaisBorrarInt);
                     if (msg.equals("e")) {
                         //se enviará un mensaje de borrado exitoso: ?msg=be
-                        response.sendRedirect(request.getContextPath() + "/listaPaises");
+                        response.sendRedirect(request.getContextPath() + "/paises");
                     } else {
                         //se enviará un mensaje de borrado NO exitoso: ?msg=bne
-                        response.sendRedirect(request.getContextPath() + "/listaPaises");
+                        response.sendRedirect(request.getContextPath() + "/paises");
                     }
                 } else { //el iD no existe, se enviará un mensaje de borrado no exitoso por id: ?msg=bneid
-                    response.sendRedirect(request.getContextPath() + "/listaPaises");
+                    response.sendRedirect(request.getContextPath() + "/paises");
                 }
                 break;
         }
