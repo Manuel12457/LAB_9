@@ -22,7 +22,7 @@
                     <form method="POST" action="<%=request.getContextPath()%>/paises?action=crear">
                         <div class="form-group">
                             <label for="nombrepais"><b>Nombre</b></label>
-                            <input class="form-control" type="text" name="nombrepais" id="nombrepais">
+                            <input class="form-control" type="text" name="nombrepais" id="nombrepais" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label"><b>Continente</b></label>
@@ -35,11 +35,11 @@
                         </div>
                         <div class="form-group">
                             <label for="poblacion"><b>Poblacion</b></label>
-                            <input class="form-control" type="text" name="poblacion" id="poblacion" >
+                            <input class="form-control" type="text" name="poblacion" id="poblacion" required>
                         </div>
                         <div class="form-group">
                             <label for="tamanho"><b>Tamaño del país en km^2</b></label>
-                            <input class="form-control" type="text" name="tamanho" id="tamanho">
+                            <input class="form-control" type="text" name="tamanho" id="tamanho" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Enviar</button>
