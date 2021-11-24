@@ -28,6 +28,7 @@
 
                         <form method="POST" action="<%=request.getContextPath()%>/paises?action=filtrarpaises">
                             <select class="form-select form-select-sm" name="id_continente">
+                                <option value="mostrartodo">Mostrar Todo</option>
                                 <% for (BContinente listcont : listacontinentes) { %>
                                 <option value="<%=listcont.getIdContinente() %>"><%=listcont.getContinente() %>
                                 </option>

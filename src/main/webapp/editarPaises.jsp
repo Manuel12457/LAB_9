@@ -23,7 +23,7 @@
                     <form method="POST" action="<%=request.getContextPath()%>/paises?action=update&id_pais=<%=bPais.getIdPais()%>">
                         <div class="form-group">
                             <label for="nombrepais"><b>Nombre</b></label>
-                            <input class="form-control" type="text" disabled name="nombrepais" id="nombrepais" value="<%=bPais.getNombre()%>">
+                            <input class="form-control" type="text" name="nombrepais" id="nombrepais" value="<%=bPais.getNombre()%>">
                         </div>
                         <div class="form-group">
                             <label class="form-label"><b>Continente</b></label>

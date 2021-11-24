@@ -1,58 +1,50 @@
+
 <%@ page import="com.example.lab_9.Beans.BPais" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="mensaje" scope="request" type="java.lang.String" class="java.lang.String"/>
+<jsp:useBean id="universidad" scope="request" type="com.example.lab_9.Dtos.DtoUniversidad"/>
 <jsp:useBean type="java.util.ArrayList<com.example.lab_9.Beans.BPais>" scope="request" id="listapaises"/>
 
 <html>
     <jsp:include page="/static/head.jsp">
-        <jsp:param name="title" value="Crear Participante"/>
+        <jsp:param name="title" value="Edicion de Universidades"/>
     </jsp:include>
     <body>
         <div class='container'>
             <jsp:include page="/includes/navbar.jsp">
-                <jsp:param name="page" value="participantes"/>
+                <jsp:param name="page" value="universidades"/>
             </jsp:include>
 
             <div class="mt-2 text-center">
-                <h1>Crear Participante</h1>
+                <h1>Editar Universidad</h1>
             </div>
             <div class="d-flex justify-content-center">
                 <div class="w-75">
 
-                    <form method="POST" action="<%=request.getContextPath()%>/participante?action=crear">
+                    <form method="POST" action="<%=request.getContextPath()%>/universidades?action=update&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>">
                         <div class="form-group">
-                            <label for="nombreparticipante"><b>Nombre</b></label>
-                            <input class="form-control" type="text" name="nombreparticipante" id="nombreparticipante">
+                            <label for="nombrepart">Nombre</label>
+                            <input class="form-control" type="text" name="nombrepart" id="nombrepart" value="<%=universidad.getUniversidad().getNombre()%>">
                         </div>
                         <div class="form-group">
-                            <label for="apellidoparticipante"><b>Apellido</b></label>
-                            <input class="form-control" type="text" name="apellidoparticipante" id="apellidoparticipante">
-                        </div>
-                        <div class="form-group">
-                            <label for="edadparticipante"><b>Edad</b></label>
-                            <input class="form-control" type="text" name="edadparticipante" id="edadparticipante" >
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label"><b>Nacionalidad</b></label>
-                            <select class="form-select form-select-sm" name="paisparticipante">
+                            <<label class="form-label"><b>Pais</b></label>
+                            <select class="form-select form-select-sm" name="paisuniversidad">
                                 <% for (BPais pais : listapaises) { %>
-                                <option value="<%=pais.getIdPais()%>"><%=pais.getNombre() %>
+                                <option value="<%=pais.getIdPais()%>"  <%=universidad.getUniversidad().getPais().getIdPais() == pais.getIdPais() ? "selected" :""%>><%=pais.getNombre() %>
                                 </option>
                                 <% } %>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="form-label"><b>Género</b></label>
-                            <select class="form-select form-select-sm" name="paisparticipante">
-                                <option value="M">Hombre</option>
-                                <option value="F">Mujer</option>
-                                <option value="Otro">Otros</option>
-                            </select>
+                            <label for="rankinguniversidad"><b>Ranking</b></label>
+                            <input class="form-control" type="text" name="rankinguniversidad" id="rankinguniversidad" value="<%=universidad.getUniversidad().getRanking()%>">
                         </div>
-
-
+                        <div class="form-group">
+                            <label for="fotouniversidad"><b>Foto</b></label>
+                            <input class="form-control" type="text" name="fotouniversidad" id="fotouniversidad" value="<%=universidad.getUniversidad().getFoto()%>">
+                        </div>
                         <button type="submit" class="btn btn-primary">Enviar</button>
-                        <a class="btn btn-danger" href="<%=request.getContextPath()%>/participantes">Cancelar</a>
+                        <a class="btn btn-danger" href="<%=request.getContextPath()%>/universidades">Cancelar</a>
                     </form>
                 </div>
             </div>
@@ -64,8 +56,8 @@
             <div class=" popup card text-center " style="background-color: white">
                 <h5 class="card-header text-center ">Mensaje</h5>
                 <div class="card-body">
-                    <h5 class="card-title p-2">Se ha creado el participante correctamente</h5>
-                    <a href="<%= request.getContextPath()%>/participante" class="btn btn-success mb-2" >Aceptar</a>
+                    <h5 class="card-title p-2">Se ha editado la universidad correctamente</h5>
+                    <a href="<%= request.getContextPath()%>/participantes" class="btn btn-success mb-2" >Aceptar</a>
 
                 </div>
             </div>
@@ -87,4 +79,3 @@
         <jsp:include page="/static/scripts.jsp"/>
     </body>
 </html>
-

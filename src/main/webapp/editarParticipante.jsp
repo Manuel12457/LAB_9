@@ -23,11 +23,11 @@
                     <form method="POST" action="<%=request.getContextPath()%>/participante?action=update&id_part=<%=participante.getIdParticipante()%>">
                         <div class="form-group">
                             <label for="nombrepart">Nombre</label>
-                            <input class="form-control" type="text" disabled name="nombrepart" id="nombrepart" value="<%=participante.getNombre()%>">
+                            <input class="form-control" type="text" name="nombrepart" id="nombrepart" value="<%=participante.getNombre()%>">
                         </div>
                         <div class="form-group">
                             <label for="apellpart">Apellido</label>
-                            <input class="form-control" type="text" disabled name="appellant" id="apellpart" value="<%=participante.getApellido()%>">
+                            <input class="form-control" type="text"  name="appellant" id="apellpart" value="<%=participante.getApellido()%>">
                         </div>
                         <div class="form-group">
                             <label for="edad">Edad</label>
