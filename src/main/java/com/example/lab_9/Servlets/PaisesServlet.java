@@ -40,6 +40,7 @@ public class PaisesServlet extends HttpServlet {
 
             case "formCrear":
                 view = request.getRequestDispatcher("/crearPaises.jsp");
+                request.setAttribute("listacontinentes", continentesDao.listarContinentes());
                 view.forward(request, response);
                 break;
 
@@ -50,6 +51,7 @@ public class PaisesServlet extends HttpServlet {
 
                 if (bPaisEditar != null) {
                     request.setAttribute("bPais", bPaisEditar);
+                    request.setAttribute("listacontinentes", continentesDao.listarContinentes());
                     view = request.getRequestDispatcher("/editarPaises.jsp");
                     view.forward(request, response);
                 } else {

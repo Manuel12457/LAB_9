@@ -2,7 +2,6 @@
 <%@ page import="com.example.lab_9.Beans.BContinente" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="mensaje" scope="request" type="java.lang.String" class="java.lang.String"/>
-<jsp:useBean id="bPais" scope="request" type="com.example.lab_9.Beans.BPais"/>
 <jsp:useBean type="java.util.ArrayList<com.example.lab_9.Beans.BContinente>" scope="request" id="listacontinentes"/>
 <html>
     <jsp:include page="/static/head.jsp">
@@ -15,32 +14,32 @@
             </jsp:include>
 
             <div class="mt-2 text-center">
-                <h1>Editar País</h1>
+                <h1>Crear País</h1>
             </div>
             <div class="d-flex justify-content-center">
                 <div class="w-75">
 
-                    <form method="POST" action="<%=request.getContextPath()%>/paises?action=update&id_pais=<%=bPais.getIdPais()%>">
+                    <form method="POST" action="<%=request.getContextPath()%>/paises?action=crear">
                         <div class="form-group">
                             <label for="nombrepais">Nombre</label>
-                            <input class="form-control" type="text" disabled name="nombrepais" id="nombrepais" value="<%=bPais.getNombre()%>">
+                            <input class="form-control" type="text" name="nombrepais" id="nombrepais">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Continente</label>
                             <select class="form-select form-select-sm" name="continente">
                                 <% for (BContinente cont : listacontinentes) { %>
-                                <option value="<%=cont.getIdContinente()%>" <%=bPais.getContinente().getIdContinente() == cont.getIdContinente() ? "selected" : ""%> ><%=cont.getContinente() %>
+                                <option value="<%=cont.getIdContinente()%>"><%=cont.getContinente() %>
                                 </option>
                                 <% } %>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="poblacion">Poblacion</label>
-                            <input class="form-control" type="text" name="poblacion" id="poblacion" value="<%=bPais.getPoblacion()%>">
+                            <input class="form-control" type="text" name="poblacion" id="poblacion" >
                         </div>
                         <div class="form-group">
                             <label for="tamanho">Tamaño</label>
-                            <input class="form-control" type="text" name="tamanho" id="tamanho" value="<%=bPais.getTamanho()%>">
+                            <input class="form-control" type="text" name="tamanho" id="tamanho">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Enviar</button>
@@ -79,3 +78,4 @@
         <jsp:include page="/static/scripts.jsp"/>
     </body>
 </html>
+

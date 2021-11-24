@@ -23,7 +23,7 @@
 
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="my-2">
-                            <a href="<%=request.getContextPath()%>/paises?action=crear" class="btn btn-info">Añadir Pais</a>
+                            <a href="<%=request.getContextPath()%>/paises?action=formCrear" class="btn btn-info">Añadir Pais</a>
                         </div>
 
                         <form method="POST" action="<%=request.getContextPath()%>/paises?action=filtrarpaises">
@@ -66,7 +66,7 @@
                                 <td><%=listpais.getTamanho()%>
                                 </td>
                                 <td>
-                                    <a href="<%=request.getContextPath()%>/paises?action=editar&id_pais=<%=listpais.getIdPais()%>"
+                                    <a href="<%=request.getContextPath()%>/paises?action=formEditar&id_pais=<%=listpais.getIdPais()%>"
                                        class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
                                 <td>
                                     <a href="<%=request.getContextPath()%>/paises?action=borrar&id_pais=<%=listpais.getIdPais()%>"
