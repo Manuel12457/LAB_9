@@ -27,6 +27,7 @@ public class UniversidadesServlet extends HttpServlet {
         RequestDispatcher view;
         switch (action) {
             case "listar":
+                System.out.println(order);
                 request.setAttribute("listuniversidad",menunidao.listarUniversidades(order));
                 request.setAttribute("mensaje", mensaje);
                 view = request.getRequestDispatcher("/listarUniversidades.jsp");

@@ -29,7 +29,7 @@
                                 <tr>
                                     <th><a href="<%=request.getContextPath()%>/universidades?order=nombre">Nombre</a></th>
                                     <th><a href="<%=request.getContextPath()%>/universidades?order=pais">País</a></th>
-                                    <th><a href="<%=request.getContextPath()%>/universidades?order=ranking">ranking</a></th>
+                                    <th><a href="<%=request.getContextPath()%>/universidades?order=ranking">Ranking</a></th>
                                     <th><a href="<%=request.getContextPath()%>/universidades?order=alumnos">Número de Alumnos</a></th>
                                     <th>Foto de la universidad</th>
                                 </tr>
@@ -42,25 +42,26 @@
                             %>
                                 <% switch (universidad.getUniversidad().getPais().getContinente().getContinente()) {
                                     case "Africa": %>
-                            <tr class="fila-red" style="color: red;font-weight: bold">
+                            <!--style="color: red;font-weight: bold"-->
+                            <tr>
 
-                                <td ><%=universidad.getUniversidad().getNombre()%>
+                                <td class="bg-primary"><%=universidad.getUniversidad().getNombre()%>
                                 </td>
-                                <td><%=universidad.getUniversidad().getPais().getNombre()%>
+                                <td class="bg-primary"><%=universidad.getUniversidad().getPais().getNombre()%>
                                 </td>
-                                <td><%=universidad.getUniversidad().getRanking()%>
+                                <td class="bg-primary"><%=universidad.getUniversidad().getRanking()%>
                                 </td>
-                                <td><%=universidad.getAlumnos()%>
+                                <td class="bg-primary"><%=universidad.getAlumnos()%>
                                 </td>
-                                <td><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
+                                <td class="bg-primary"><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
                                 </td>
-                                <td>
+                                <td class="bg-primary">
                                     <a href="<%=request.getContextPath()%>/universidades?action=formEditar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
-                                <td>
+                                <td class="bg-primary">
                                     <a href="<%=request.getContextPath()%>/universidades?action=borrar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
-                                <td>
+                                <td class="bg-primary">
                                     <a href="<%=request.getContextPath()%>/universidades?action=alumnos&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary">Ver alumnos</a></td>
 
@@ -69,25 +70,26 @@
                                     break;
                                 case "America":
                             %>
-                            <tr class="fila-purple" style="color: purple;font-weight: bold">
+                            <!--style="color: purple;font-weight: bold"-->
+                            <tr>
 
-                                <td><%=universidad.getUniversidad().getNombre()%>
+                                <td class="bg-success"><%=universidad.getUniversidad().getNombre()%>
                                 </td>
-                                <td><%=universidad.getUniversidad().getPais().getNombre()%>
+                                <td class="bg-success"><%=universidad.getUniversidad().getPais().getNombre()%>
                                 </td>
-                                <td><%=universidad.getUniversidad().getRanking()%>
+                                <td class="bg-success"><%=universidad.getUniversidad().getRanking()%>
                                 </td>
-                                <td><%=universidad.getAlumnos()%>
+                                <td class="bg-success"><%=universidad.getAlumnos()%>
                                 </td>
-                                <td><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
+                                <td class="bg-success"><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
                                 </td>
-                                <td>
+                                <td class="bg-success">
                                     <a href="<%=request.getContextPath()%>/universidades?action=formEditar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
-                                <td>
+                                <td class="bg-success">
                                     <a href="<%=request.getContextPath()%>/universidades?action=borrar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
-                                <td>
+                                <td class="bg-success">
                                     <a href="<%=request.getContextPath()%>/universidades?action=alumnos&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary">Ver alumnos</a></td>
 
@@ -96,25 +98,26 @@
                                     break;
                                 case "Asia":
                             %>
-                            <tr class="fila-green" style="color: green;font-weight: bold">
+                            <!--style="color: green;font-weight: bold"-->
+                            <tr>
 
-                                <td><%=universidad.getUniversidad().getNombre()%>
+                                <td class="bg-warning"><%=universidad.getUniversidad().getNombre()%>
                                 </td>
-                                <td><%=universidad.getUniversidad().getPais().getNombre()%>
+                                <td class="bg-warning"><%=universidad.getUniversidad().getPais().getNombre()%>
                                 </td>
-                                <td><%=universidad.getUniversidad().getRanking()%>
+                                <td class="bg-warning"><%=universidad.getUniversidad().getRanking()%>
                                 </td>
-                                <td><%=universidad.getAlumnos()%>
+                                <td class="bg-warning"><%=universidad.getAlumnos()%>
                                 </td>
-                                <td><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
+                                <td class="bg-warning"><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
                                 </td>
-                                <td>
+                                <td class="bg-warning">
                                     <a href="<%=request.getContextPath()%>/universidades?action=formEditar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
-                                <td>
+                                <td class="bg-warning">
                                     <a href="<%=request.getContextPath()%>/universidades?action=borrar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
-                                <td>
+                                <td class="bg-warning">
                                     <a href="<%=request.getContextPath()%>/universidades?action=alumnos&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary">Ver alumnos</a></td>
                             </tr>
@@ -122,25 +125,26 @@
                                     break;
                                 case "Europa":
                             %>
-                            <tr class="fila-blue" style="color: blue;font-weight: bold">
+                            <!--style="color: blue;font-weight: bold"-->
+                            <tr>
 
-                                <td><%=universidad.getUniversidad().getNombre()%>
+                                <td class="bg-danger"><%=universidad.getUniversidad().getNombre()%>
                                 </td>
-                                <td><%=universidad.getUniversidad().getPais().getNombre()%>
+                                <td class="bg-danger"><%=universidad.getUniversidad().getPais().getNombre()%>
                                 </td>
-                                <td><%=universidad.getUniversidad().getRanking()%>
+                                <td class="bg-danger"><%=universidad.getUniversidad().getRanking()%>
                                 </td>
-                                <td><%=universidad.getAlumnos()%>
+                                <td class="bg-danger"><%=universidad.getAlumnos()%>
                                 </td>
-                                <td><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
+                                <td class="bg-danger"><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
                                 </td>
-                                <td>
+                                <td class="bg-danger">
                                     <a href="<%=request.getContextPath()%>/universidades?action=formEditar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
-                                <td>
+                                <td class="bg-danger">
                                     <a href="<%=request.getContextPath()%>/universidades?action=borrar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
-                                <td>
+                                <td class="bg-danger">
                                     <a href="<%=request.getContextPath()%>/universidades?action=alumnos&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary">Ver alumnos</a></td>
                             </tr>
@@ -148,25 +152,26 @@
                                     break;
                                 default:
                             %>
-                            <tr class="fila-yellow" style="color: yellow;font-weight: bold">
+                            <!--style="color: yellow;font-weight: bold"-->
+                            <tr>
 
-                                <td><%=universidad.getUniversidad().getNombre()%>
+                                <td class="bg-info"><%=universidad.getUniversidad().getNombre()%>
                                 </td>
-                                <td><%=universidad.getUniversidad().getPais().getNombre()%>
+                                <td class="bg-info"><%=universidad.getUniversidad().getPais().getNombre()%>
                                 </td>
-                                <td><%=universidad.getUniversidad().getRanking()%>
+                                <td class="bg-info"><%=universidad.getUniversidad().getRanking()%>
                                 </td>
-                                <td><%=universidad.getAlumnos()%>
+                                <td class="bg-info"><%=universidad.getAlumnos()%>
                                 </td>
-                                <td><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
+                                <td class="bg-info"><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
                                 </td>
-                                <td>
+                                <td class="bg-info">
                                     <a href="<%=request.getContextPath()%>/universidades?action=formEditar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
-                                <td>
+                                <td class="bg-info">
                                     <a href="<%=request.getContextPath()%>/universidades?action=borrar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
-                                <td>
+                                <td class="bg-info">
                                     <a href="<%=request.getContextPath()%>/universidades?action=alumnos&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary">Ver alumnos</a></td>
                             </tr>

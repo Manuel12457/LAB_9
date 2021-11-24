@@ -29,28 +29,27 @@ public class MenuUniversidadesDao extends BaseDao{
         String sql = "select u.idUniversidad, u.nombre, p.nombre, u.Paises_idPaises, u.ranking, u.foto, (select count(*) from lab9.alumno group by Universidad_idUniversidad having Universidad_idUniversidad = idUniversidad) as `# alumnos`\n" +
                 "from lab9.universidad u\n" +
                 "inner join lab9.paises p on (u.Paises_idPaises = p.idPaises)\n" +
-                "order by ?;";
+                "order by " + orden + ";";
+
+        System.out.println(sql);
 
         try (Connection conn = this.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql);) {
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
 
-            pstmt.setString(1, orden);
+            while (rs.next()) {
 
-            try (ResultSet rs = pstmt.executeQuery();) {
+                BUniversidad universidad = obtenerUniversidadPorId(rs.getInt(1));
 
-                while (rs.next()) {
+                DtoUniversidad dtoUniversidad = new DtoUniversidad();
+                dtoUniversidad.setAlumnos(rs.getInt(7));
+                dtoUniversidad.setUniversidad(universidad);
 
-                    BUniversidad universidad = obtenerUniversidadPorId(rs.getInt(1));
-
-                    DtoUniversidad dtoUniversidad = new DtoUniversidad();
-                    dtoUniversidad.setAlumnos(rs.getInt(7));
-                    dtoUniversidad.setUniversidad(universidad);
-
-                    listaUniversidad.add(dtoUniversidad);
-                }
+                listaUniversidad.add(dtoUniversidad);
             }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+
+        } catch (SQLException e) {
+            System.out.println("No se pudo realizar la busqueda");
         }
 
         return listaUniversidad;
