@@ -2,8 +2,11 @@
 <%@ page import="com.example.lab_9.Beans.BContinente" %>
 <%@ page import="com.example.lab_9.Beans.BParticipante" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean type="java.util.ArrayList<com.example.lab_9.Beans.BContinente>" scope="request" id="listacontinentes"/>
 <jsp:useBean type="java.util.ArrayList<com.example.lab_9.Beans.BParticipante>" scope="request" id="listparticipantes"/>
+<jsp:useBean type="java.util.ArrayList<com.example.lab_9.Beans.BParticipante>" scope="request" id="listpaises"/>
+<jsp:useBean id="pais" scope="request" type="java.lang.String" class="java.lang.String"/>
+<jsp:useBean id="porcentaje" scope="request" type="java.lang.Float" class="java.lang.Float"/>
+<jsp:useBean id="promedio" scope="request" type="java.lang.Float" class="java.lang.Float"/>
 <jsp:useBean id="mensaje" scope="request" type="java.lang.String" class="java.lang.String"/>
 <html>
     <jsp:include page="/static/head.jsp">
@@ -26,6 +29,25 @@
                         <a href="<%=request.getContextPath()%>/participantes?action=crear" class="btn btn-info">Añadir Participante</a>
                     </div>
 
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>País con mayor número de participantes</th>
+                                <th>Porcentaje de hombres y mujeres</th>
+                                <th>Promedio de edad de los participantes</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td><%=pais%></td>
+                                <th><%=porcentaje%></th>
+                                <th><%=promedio%></th>
+                            </tr>
+
+                        </tbody>
+                    </table>
 
                     <table class="table table-dark table-transparent table-hover">
                         <thead>
@@ -55,10 +77,10 @@
                                 <td><%=partic.getGenero()%>
                                 </td>
                                 <td>
-                                    <a href="<%=request.getContextPath()%>/paises?action=editar&id_banda=<%=partic.getIdParticipante()%>"
+                                    <a href="<%=request.getContextPath()%>/participantes?action=editar&id_participante=<%=partic.getIdParticipante()%>"
                                        class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
                                 <td>
-                                    <a href="<%=request.getContextPath()%>/paises?action=borrar&id_banda=<%=partic.getIdParticipante()%>"
+                                    <a href="<%=request.getContextPath()%>/participantes?action=borrar&id_participante=<%=partic.getIdParticipante()%>"
                                        class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
                             </tr>
                         </tbody>
@@ -70,6 +92,8 @@
                 </div>
             </div>
         </div>
+
+
 
         <% if (mensaje.equals("ok")) {%>
         <nav id="popup"  class="overlay">

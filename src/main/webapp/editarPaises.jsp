@@ -22,11 +22,11 @@
 
                     <form method="POST" action="<%=request.getContextPath()%>/paises?action=update&id_pais=<%=bPais.getIdPais()%>">
                         <div class="form-group">
-                            <label for="nombrepais">Nombre</label>
+                            <label for="nombrepais"><b>Nombre</b></label>
                             <input class="form-control" type="text" disabled name="nombrepais" id="nombrepais" value="<%=bPais.getNombre()%>">
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Continente</label>
+                            <label class="form-label"><b>Continente</b></label>
                             <select class="form-select form-select-sm" name="continente">
                                 <% for (BContinente cont : listacontinentes) { %>
                                 <option value="<%=cont.getIdContinente()%>" <%=bPais.getContinente().getIdContinente() == cont.getIdContinente() ? "selected" : ""%> ><%=cont.getContinente() %>
@@ -35,11 +35,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="poblacion">Poblacion</label>
+                            <label for="poblacion"><b>Poblacion</b></label>
                             <input class="form-control" type="text" name="poblacion" id="poblacion" value="<%=bPais.getPoblacion()%>">
                         </div>
                         <div class="form-group">
-                            <label for="tamanho">Tamaño</label>
+                            <label for="tamanho"><b>Tamaño del país en km^2</b></label>
                             <input class="form-control" type="text" name="tamanho" id="tamanho" value="<%=bPais.getTamanho()%>">
                         </div>
 

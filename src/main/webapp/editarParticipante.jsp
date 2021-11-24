@@ -1,7 +1,9 @@
-
+<%@ page import="com.example.lab_9.Beans.BPais" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="mensaje" scope="request" type="java.lang.String" class="java.lang.String"/>
 <jsp:useBean id="participante" scope="request" type="com.example.lab_9.Beans.BParticipante"/>
+<jsp:useBean type="java.util.ArrayList<com.example.lab_9.Beans.BPais>" scope="request" id="listapaises"/>
+
 <html>
     <jsp:include page="/static/head.jsp">
         <jsp:param name="title" value="Edicion de Participantes"/>
@@ -25,19 +27,32 @@
                         </div>
                         <div class="form-group">
                             <label for="apellpart">Apellido</label>
-                            <input class="form-control" type="text" disabled name="apellpart" id="apellpart" value="<%=participante.getApellido()%>">
+                            <input class="form-control" type="text" disabled name="appellant" id="apellpart" value="<%=participante.getApellido()%>">
                         </div>
                         <div class="form-group">
                             <label for="edad">Edad</label>
                             <input class="form-control" type="text" name="edad" id="edad" value="<%=participante.getEdad()%>">
                         </div>
                         <div class="form-group">
-                            <label for="nacio">Nacionalidad</label>
-                            <input class="form-control" type="text" name="nacio" id="nacio" value="<%=participante.getPais()%>">
+                            <label class="form-label"><b>Nacionalidad</b></label>
+                            <select class="form-select form-select-sm" name="paisparticipante">
+                                <% for (BPais pais : listapaises) { %>
+                                <option value="<%=pais.getIdPais()%>" <%=participante.getPais().getIdPais() == pais.getIdPais() ? "selected" : ""%>  ><%=pais.getNombre() %>
+                                </option>
+                                <% } %>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="genero">Género</label>
-                            <input class="form-control" type="text" name="genero" id="genero" value="<%=participante.getGenero()%>">
+                            <label class="form-label"><b>Nacionalidad</b></label>
+                            <select class="form-select form-select-sm" name="generoparticipante">
+                                <% for (BPais pais : listapaises) { %>
+                                <option value="<%=pais.getIdPais()%>" <%=participante.getPais().getIdPais() == pais.getIdPais() ? "selected" : ""%>  ><%=pais.getNombre() %>
+                                </option>
+                                <% } %>
+                                <option value="M" <%=participante.getGenero().equals("M") ? "selected" : ""%>>Hombre</option>
+                                <option value="F" <%=participante.getGenero().equals("F") ? "selected" : ""%>>Hombre</option>
+                                <option value="Otros" <%=participante.getGenero().equals("Otro") ? "selected" : ""%>>Otro</option>
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Enviar</button>
                         <a class="btn btn-danger" href="<%=request.getContextPath()%>/participante">Cancelar</a>

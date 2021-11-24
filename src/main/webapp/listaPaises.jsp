@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean type="java.util.ArrayList<com.example.lab_9.Beans.BContinente>" scope="request" id="listacontinentes"/>
 <jsp:useBean type="java.util.ArrayList<com.example.lab_9.Beans.BPais>" scope="request" id="listpaises"/>
-
+<jsp:useBean id="mensaje" scope="request" type="java.lang.String" class="java.lang.String"/>
 <html>
     <jsp:include page="/static/head.jsp">
         <jsp:param name="title" value="Lista de Paises"/>
@@ -44,10 +44,10 @@
                     <table class="table table-dark table-transparent table-hover">
                         <thead>
                             <tr>
-                                <th>Nombre del País</th>
-                                <th>Continente</th>
-                                <th>Poblacion</th>
-                                <th>tamaño del país</th>
+                                <th><b>Nombre del País</b></th>
+                                <th><b>Continente</b></th>
+                                <th><b>Poblacion</b></th>
+                                <th><b>tamaño del país (km^2)</b></th>
                             </tr>
                         </thead>
 
@@ -81,6 +81,32 @@
                 </div>
             </div>
         </div>
+
+        <% if (mensaje.equals("ok")) {%>
+        <nav id="popup"  class="overlay">
+            <div class=" popup card text-center " style="background-color: white">
+                <h5 class="card-header text-center ">Mensaje</h5>
+                <div class="card-body">
+                    <h5 class="card-title p-2">Se ha eliminado el participante correctamente</h5>
+                    <a href="#popup" class="btn btn-success mb-2" >Aceptar</a>
+
+                </div>
+            </div>
+        </nav>
+        <% } else if (mensaje.equals("error")){%>
+        <nav id="popup"  class="overlay">
+            <div class=" popup card text-center " style="background-color: white">
+                <h5 class="card-header text-center ">Mensaje</h5>
+                <div class="card-body">
+                    <h5 class="card-title p-2"></h5>
+                    <a href="#popup"  class="btn btn-success mb-2" >No se ha podido eliminar al participante</a>
+
+                </div>
+            </div>
+        </nav>
+
+        <% } else {%>
+        <% } %>
         <jsp:include page="/static/scripts.jsp"/>
     </body>
 </html>
