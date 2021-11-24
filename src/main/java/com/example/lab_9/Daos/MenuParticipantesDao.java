@@ -30,8 +30,8 @@ public class MenuParticipantesDao extends BaseDao{
                 participante.setEdad(rs.getInt(4));
                 participante.setGenero(rs.getString(5));
 
-                BPais pais = new BPais();
-                pais.setIdPais(rs.getInt(6));
+                MenuPaisesDao menuPaisesDao = new MenuPaisesDao();
+                BPais pais = menuPaisesDao.obtenerPaisPorId(rs.getInt(6));
                 participante.setPais(pais);
 
                 AlumnosDao alumnosDao = new AlumnosDao();
@@ -108,11 +108,11 @@ public class MenuParticipantesDao extends BaseDao{
             pstmt.setInt(5, participante.getPais().getIdPais());
 
             pstmt.executeUpdate();
-            return "e";
+            return "ok";
 
         } catch (SQLException ex) {
             ex.printStackTrace();
-            return "ne";
+            return "error";
         }
 
     }
@@ -120,7 +120,7 @@ public class MenuParticipantesDao extends BaseDao{
     public String editarParticipante(BParticipante participante) {
 
         String sql = "update lab9.participantes set nombre = ?, apellido = ?, edad = ?, genero = ?, Paises_idPaises = ?\n" +
-                "where idParticipantes = 1;";
+                "where idParticipantes = ?;";
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -130,31 +130,32 @@ public class MenuParticipantesDao extends BaseDao{
             pstmt.setInt(3, participante.getEdad());
             pstmt.setString(4, participante.getGenero());
             pstmt.setInt(5, participante.getPais().getIdPais());
+            pstmt.setInt(6, participante.getIdParticipante());
 
             pstmt.executeUpdate();
-            return "e";
+            return "ok";
 
         } catch (SQLException ex) {
             ex.printStackTrace();
-            return "ne";
+            return "error";
         }
 
     }
 
     public String eliminarParticipante(int idParticipante) {
 
-        String sql = "delete from lab9.participantes where idPartipantes = ?;";
+        String sql = "delete from lab9.participantes where idParticipantes = ?;";
 
         try (Connection conn = this.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
 
             pstmt.setInt(1, idParticipante);
             pstmt.executeUpdate();
-            return "e";
+            return "ok";
 
         } catch (SQLException ex) {
             ex.printStackTrace();
-            return "ne";
+            return "error";
         }
 
     }
@@ -201,28 +202,28 @@ public class MenuParticipantesDao extends BaseDao{
 
     }
 
-    public HashMap<String, Integer> paisesYNumeroParticipantes() {
+    public String paisesYNumeroParticipantes() {
 
-        HashMap<String, Integer> arreglo = new HashMap<>();
+        String pais = null;
 
-        String sql = "select pa.nombre, count(p.idParticipantes) as '# participantes' from lab9.participantes p\n" +
+        String sql = "select pa.nombre, count(p.idParticipantes) as `# participantes` from lab9.participantes p\n" +
                 "left join lab9.paises pa on (p.Paises_idPaises = pa.idPaises)\n" +
                 "group by pa.nombre\n" +
-                "order by '# participantes';";
+                "order by `# participantes` desc;";
 
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
-            while(rs.next()) {
-                arreglo.put(rs.getString(1),rs.getInt(2));
+            if(rs.next()) {
+                pais = rs.getString(1);
             }
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
-        return arreglo;
+        return pais;
 
     }
 

@@ -2,7 +2,7 @@
 <html>
     <!--Colocar como value: nombre de la página actual -->
     <jsp:include page="/static/head.jsp">
-        <jsp:param name="title" value="AllMusic"/>
+        <jsp:param name="title" value="Inicio"/>
     </jsp:include>
     <body>
         <div class='container'>
@@ -12,9 +12,9 @@
             </jsp:include>
 
             <div class="container text-center mt-2">
-                <h1>Bienvenido al proyecto del laboratorio 9</h1>
+                <h1>Pagina de inicio - Laboratorio 9</h1>
 
-                <p>Esta es una página donde puede conocer más sobre el registro de paises,participantes y  el consorcio mundial de universidades VIP .</p>
+                <p>Esta es una página donde puede conocer más sobre el registro de paises, participantes y el consorcio mundial de universidades VIP</p>
             </div>
 
 

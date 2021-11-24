@@ -2,11 +2,10 @@
 <%@ page import="com.example.lab_9.Beans.BParticipante" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean type="java.util.ArrayList<com.example.lab_9.Beans.BParticipante>" scope="request" id="listparticipantes"/>
-<jsp:useBean type="java.util.ArrayList<com.example.lab_9.Beans.BParticipante>" scope="request" id="listpaises"/>
 <jsp:useBean id="pais" scope="request" type="java.lang.String" class="java.lang.String"/>
-<jsp:useBean id="porcentaje" scope="request" type="java.lang.Float" class="java.lang.Float"/>
-<jsp:useBean id="promedio" scope="request" type="java.lang.Float" class="java.lang.Float"/>
-<jsp:useBean id="mensaje" scope="request" type="java.lang.String" class="java.lang.String"/>
+<jsp:useBean id="porcentaje" scope="request" type="java.lang.String"/>
+<jsp:useBean id="promedio" scope="request" type="java.lang.Float"/>
+<jsp:useBean id="mensaje" scope="request" type="java.lang.String"/>
 
 <html>
     <jsp:include page="/static/head.jsp">
@@ -26,7 +25,7 @@
                 <div class="w-75">
 
                     <div class="my-2">
-                        <a href="<%=request.getContextPath()%>/participantes?action=crear" class="btn btn-info">Añadir Participante</a>
+                        <a href="<%=request.getContextPath()%>/participantes?action=crearForm" class="btn btn-info">Añadir Participante</a>
                     </div>
 
                     <table class="table table-striped">
@@ -72,12 +71,12 @@
                                 </td>
                                 <td><%=partic.getEdad()%>
                                 </td>
-                                <td><%=partic.getPais()%>
+                                <td><%=partic.getPais().getNombre()%>
                                 </td>
                                 <td><%=partic.getGenero()%>
                                 </td>
                                 <td>
-                                    <a href="<%=request.getContextPath()%>/participantes?action=editar&id_participante=<%=partic.getIdParticipante()%>"
+                                    <a href="<%=request.getContextPath()%>/participantes?action=editarForm&id_participante=<%=partic.getIdParticipante()%>"
                                        class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
                                 <td>
                                     <a href="<%=request.getContextPath()%>/participantes?action=borrar&id_participante=<%=partic.getIdParticipante()%>"

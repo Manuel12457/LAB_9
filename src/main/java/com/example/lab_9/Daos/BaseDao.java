@@ -9,7 +9,7 @@ public class BaseDao {
     public Connection getConnection() throws SQLException {
         String user = "root";
         String pass = "root";
-        String url = "jdbc:mysql://127.0.0.1:3306/lab9";
+        String url = "jdbc:mysql://localhost:3306/lab9";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
