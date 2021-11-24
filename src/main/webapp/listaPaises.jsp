@@ -23,7 +23,8 @@
 
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="my-2">
-                            <a href="<%=request.getContextPath()%>/paises?action=formCrear" class="btn btn-info">Añadir Pais</a>
+                            <a href="<%=request.getContextPath()%>/paises?action=formCrear" class="btn btn-info">Añadir
+                                Pais</a>
                         </div>
 
                         <form method="POST" action="<%=request.getContextPath()%>/paises?action=filtrarpaises">
@@ -38,8 +39,6 @@
                         </form>
 
                     </div>
-
-
 
 
                     <table class="table table-dark table-transparent table-hover">
