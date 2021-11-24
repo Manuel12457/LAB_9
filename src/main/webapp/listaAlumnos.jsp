@@ -67,9 +67,9 @@
                                        class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
                             </tr>
                             <%}else{%>
-                            <tr>
+                            <tr style="color: red; font-weight: bold">
 
-                                <td style="color: red"><%=participante.getNombre()%>
+                                <td ><%=participante.getNombre()%>
                                 </td>
                                 <td><%=participante.getApellido()%>
                                 </td>

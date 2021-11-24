@@ -18,7 +18,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link <%=request.getParameter("page").equals("universidades")? "active": "" %>"
-                   href="<%=request.getContextPath()%>/universidades">Universidades</a>
+                   href="<%=request.getContextPath()%>/universidades?order=ranking">Universidades</a>
             </li>
 
         </ul>

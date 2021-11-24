@@ -22,7 +22,7 @@
                     <form method="POST" action="<%=request.getContextPath()%>/universidades?action=crear">
                         <div class="form-group">
                             <label for="nombreuniversidad"><b>Nombre</b></label>
-                            <input class="form-control" type="text" name="nombreuniversidad" id="nombreuniversidad">
+                            <input class="form-control" type="text" name="nombreuniversidad" id="nombreuniversidad" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label"><b>Pais</b></label>
@@ -35,12 +35,12 @@
                         </div>
                         <div class="form-group">
                             <label for="rankinguniversidad"><b>Ranking</b></label>
-                            <input class="form-control" type="text" name="rankinguniversidad" id="rankinguniversidad" >
+                            <input class="form-control" type="text" name="rankinguniversidad" id="rankinguniversidad"required >
                         </div>
 
                         <div class="form-group">
                             <label for="fotouniversidad"><b>Foto</b></label>
-                            <input class="form-control" type="text" name="fotouniversidad" id="fotouniversidad" >
+                            <input class="form-control" type="text" name="fotouniversidad" id="fotouniversidad" required>
                         </div>
 
 
