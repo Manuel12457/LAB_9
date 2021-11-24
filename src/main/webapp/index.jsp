@@ -11,9 +11,8 @@
                 <jsp:param name="page" value=""/>
             </jsp:include>
 
-            <div class="container text-center mt-2">
+            <div class="mt-2 bg-light text-dark text-center">
                 <h1>Pagina de inicio - Laboratorio 9</h1>
-
                 <p>Esta es una página donde puede conocer más sobre el registro de paises, participantes y el consorcio mundial de universidades VIP</p>
             </div>
 

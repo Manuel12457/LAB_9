@@ -14,7 +14,7 @@
                 <jsp:param name="page" value="paises"/>
             </jsp:include>
 
-            <div class="mt-2 text-center">
+            <div class="mt-2 bg-light text-dark text-center">
                 <h1>Lista de Paises</h1>
             </div>
 
@@ -35,7 +35,7 @@
                                 </option>
                                 <% } %>
                             </select>
-                            <button type="submit" class="btn btn-primary">Buscar por Continente</button>
+                            <button type="submit" class="btn btn-primary">Filtrar</button>
                         </form>
 
                     </div>

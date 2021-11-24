@@ -165,16 +165,17 @@ public class MenuParticipantesDao extends BaseDao{
         HashMap<String, Float> arreglo = new HashMap<>();
 
         String sql = "select genero, count(idParticipantes), truncate(count(idParticipantes) * 100 / (select count(idParticipantes) from lab9.participantes where genero = 'M' or genero = 'F'),2) as 'porcentaje'\n" +
-                "from lab9.participantes group by genero having genero = 'M' or genero = 'F';";
+                "from lab9.participantes group by genero having genero = 'M' or genero = 'F'\n" +
+                "order by genero;";
 
         try (Connection conn = this.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
             rs.next();
-            arreglo.put("M",rs.getFloat(3));
-            rs.next();
             arreglo.put("F",rs.getFloat(3));
+            rs.next();
+            arreglo.put("M",rs.getFloat(3));
 
         } catch (SQLException ex) {
             ex.printStackTrace();

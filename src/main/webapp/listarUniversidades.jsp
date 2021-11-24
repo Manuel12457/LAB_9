@@ -13,7 +13,7 @@
                 <jsp:param name="page" value="universidades"/>
             </jsp:include>
 
-            <div class="mt-2 text-center">
+            <div class="mt-2 bg-light text-dark text-center">
                 <h1>Lista de Universidades</h1>
             </div>
 

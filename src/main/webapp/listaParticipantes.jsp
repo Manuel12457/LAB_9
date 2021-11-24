@@ -17,7 +17,7 @@
                 <jsp:param name="page" value="participantes"/>
             </jsp:include>
 
-            <div class="mt-2 text-center">
+            <div class="mt-2 bg-light text-dark text-center">
                 <h1>Lista de Participantes</h1>
             </div>
 
@@ -31,18 +31,18 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>País con mayor número de participantes</th>
-                                <th>Porcentaje de hombres y mujeres</th>
-                                <th>Promedio de edad de los participantes</th>
+                                <th class="table-light">País con mayor número de participantes</th>
+                                <th class="table-light">Porcentaje de hombres y mujeres</th>
+                                <th class="table-light">Promedio de edad de los participantes</th>
 
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
-                                <td><%=pais%></td>
-                                <th><%=porcentaje%></th>
-                                <th><%=promedio%></th>
+                                <th class="table-light"><%=pais%></th>
+                                <th class="table-light"><%=porcentaje%></th>
+                                <th class="table-light"><%=promedio%></th>
                             </tr>
 
                         </tbody>
