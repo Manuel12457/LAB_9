@@ -167,7 +167,7 @@ public class AlumnosDao extends BaseDao{
 
     public String eliminarAlumno(int idAlumno) {
 
-        //Buscar el alumno que sea ese alumno;
+        //Buscar el participante que sea ese alumno;
         String sql = "select idParticipantes from lab9.participantes where Alumno_idAlumno = ?;";
         int idParticipante = 0;
 
