@@ -6,7 +6,7 @@
 
 <html>
     <jsp:include page="/static/head.jsp">
-        <jsp:param name="title" value="Lista de Universidades"/>
+        <jsp:param name="title" value="Lista de Alumnos"/>
     </jsp:include>
     <body>
         <div class='container'>
@@ -63,7 +63,7 @@
                                     <a href="<%=request.getContextPath()%>/alumnos?action=editar&id_alumno=<%=participante.getIdParticipante()%>"
                                        class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
                                 <td>
-                                    <a href="<%=request.getContextPath()%>/alumnos?action=borrar&id_alumno=<%=participante.getIdParticipante()%>"
+                                    <a href="<%=request.getContextPath()%>/alumnos?action=borrarlogico&id_alumno=<%=participante.getIdParticipante()%>"
                                        class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
                             </tr>
                             <%}else{%>
@@ -79,14 +79,16 @@
                                 </td>
                                 <td><%=participante.getAlumno().getPromedioPonderado()%>
                                 </td>
+
+
                                 <td><%=participante.getAlumno().getCondicion()%>
                                 </td>
                                 <td>
                                     <a href="<%=request.getContextPath()%>/alumnos?action=editar&id_alumno=<%=participante.getIdParticipante()%>"
                                        class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
                                 <td>
-                                    <a href="<%=request.getContextPath()%>/alumnos?action=borrar&id_alumno=<%=participante.getIdParticipante()%>"
-                                       class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
+                                    <a href="<%=request.getContextPath()%>/alumnos?action=borrarbd&id_alumno=<%=participante.getIdParticipante()%>"
+                                       class="btn btn-danger">Borrar</a></td>
                             </tr>
 
                             <%}%>

@@ -35,12 +35,15 @@
                             </tr>
                         </thead>
 
+
+
                         <%
                             for (DtoUniversidad universidad: listuniversidad) {
                         %>
 
                         <tbody>
-                            <tr>
+                            <%if(universidad.getUniversidad().getPais().getContinente().equals("Africa")){%>
+                            <tr class="fila-red">
 
                                 <td><%=universidad.getUniversidad().getNombre()%>
                                 </td>
@@ -63,6 +66,100 @@
                                        class="btn btn-primary">Ver alumnos</a></td>
 
                             </tr>
+                            <%}else if(universidad.getUniversidad().getPais().getContinente().equals("America")){%>
+                            <tr class="fila-purple">
+
+                                <td><%=universidad.getUniversidad().getNombre()%>
+                                </td>
+                                <td><%=universidad.getUniversidad().getPais()%>
+                                </td>
+                                <td><%=universidad.getUniversidad().getRanking()%>
+                                </td>
+                                <td><%=universidad.getAlumnos()%>
+                                </td>
+                                <td><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
+                                </td>
+                                <td>
+                                    <a href="<%=request.getContextPath()%>/universidades?action=editar&id_participante=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                       class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
+                                <td>
+                                    <a href="<%=request.getContextPath()%>/universidades?action=borrar&id_participante=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                       class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
+                                <td>
+                                    <a href="<%=request.getContextPath()%>/universidades?action=alumnos&id_participante=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                       class="btn btn-primary">Ver alumnos</a></td>
+
+                            </tr>
+                            <%}else if(universidad.getUniversidad().getPais().getContinente().equals("Asia")){%>
+                            <tr class="fila-purple">
+
+                                <td><%=universidad.getUniversidad().getNombre()%>
+                                </td>
+                                <td><%=universidad.getUniversidad().getPais()%>
+                                </td>
+                                <td><%=universidad.getUniversidad().getRanking()%>
+                                </td>
+                                <td><%=universidad.getAlumnos()%>
+                                </td>
+                                <td><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
+                                </td>
+                                <td>
+                                    <a href="<%=request.getContextPath()%>/universidades?action=editar&id_participante=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                       class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
+                                <td>
+                                    <a href="<%=request.getContextPath()%>/universidades?action=borrar&id_participante=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                       class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
+                                <td>
+                                    <a href="<%=request.getContextPath()%>/universidades?action=alumnos&id_participante=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                       class="btn btn-primary">Ver alumnos</a></td>
+                            </tr>
+                            <%}else if(universidad.getUniversidad().getPais().getContinente().equals("Europa")){%>
+                            <tr class="fila-blue">
+
+                                <td><%=universidad.getUniversidad().getNombre()%>
+                                </td>
+                                <td><%=universidad.getUniversidad().getPais()%>
+                                </td>
+                                <td><%=universidad.getUniversidad().getRanking()%>
+                                </td>
+                                <td><%=universidad.getAlumnos()%>
+                                </td>
+                                <td><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
+                                </td>
+                                <td>
+                                    <a href="<%=request.getContextPath()%>/universidades?action=editar&id_participante=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                       class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
+                                <td>
+                                    <a href="<%=request.getContextPath()%>/universidades?action=borrar&id_participante=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                       class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
+                                <td>
+                                    <a href="<%=request.getContextPath()%>/universidades?action=alumnos&id_participante=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                       class="btn btn-primary">Ver alumnos</a></td>
+                            </tr>
+                            <%}else{%>
+                            <tr class="fila-yellow">
+
+                                <td><%=universidad.getUniversidad().getNombre()%>
+                                </td>
+                                <td><%=universidad.getUniversidad().getPais()%>
+                                </td>
+                                <td><%=universidad.getUniversidad().getRanking()%>
+                                </td>
+                                <td><%=universidad.getAlumnos()%>
+                                </td>
+                                <td><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
+                                </td>
+                                <td>
+                                    <a href="<%=request.getContextPath()%>/universidades?action=editar&id_participante=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                       class="btn btn-primary"><span class="fa fa-edit"></span></a></td>
+                                <td>
+                                    <a href="<%=request.getContextPath()%>/universidades?action=borrar&id_participante=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                       class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
+                                <td>
+                                    <a href="<%=request.getContextPath()%>/universidades?action=alumnos&id_participante=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                       class="btn btn-primary">Ver alumnos</a></td>
+                            </tr>
+                            <%}%>
                         </tbody>
 
                         <%

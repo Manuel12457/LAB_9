@@ -1,5 +1,4 @@
 
-<%@ page import="com.example.lab_9.Beans.BContinente" %>
 <%@ page import="com.example.lab_9.Beans.BParticipante" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean type="java.util.ArrayList<com.example.lab_9.Beans.BParticipante>" scope="request" id="listparticipantes"/>
@@ -8,6 +7,7 @@
 <jsp:useBean id="porcentaje" scope="request" type="java.lang.Float" class="java.lang.Float"/>
 <jsp:useBean id="promedio" scope="request" type="java.lang.Float" class="java.lang.Float"/>
 <jsp:useBean id="mensaje" scope="request" type="java.lang.String" class="java.lang.String"/>
+
 <html>
     <jsp:include page="/static/head.jsp">
         <jsp:param name="title" value="Lista de Participantes"/>
