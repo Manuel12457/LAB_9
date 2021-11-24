@@ -215,4 +215,29 @@ public class AlumnosDao extends BaseDao{
 
     }
 
+    public boolean codigoExisteEnUniversidad(String codigo, int idUniversidad) {
+
+        String sql = "select codigoAlumno from lab9.alumno where Universidad_idUniversidad = ?;";
+
+        try (Connection conn = this.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);) {
+
+            pstmt.setInt(1, idUniversidad);
+
+            try (ResultSet rs = pstmt.executeQuery();) {
+
+                while (rs.next()) {
+                    if (codigo.equals(rs.getString(1))) {
+                        return true;
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+        return false;
+
+    }
+
 }
