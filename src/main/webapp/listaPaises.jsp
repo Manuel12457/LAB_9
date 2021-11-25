@@ -87,7 +87,7 @@
             <div class=" popup card text-center " style="background-color: white">
                 <h5 class="card-header text-center ">Mensaje</h5>
                 <div class="card-body">
-                    <h5 class="card-title p-2">Se ha eliminado el participante correctamente</h5>
+                    <h5 class="card-title p-2">Se ha eliminado el Pais correctamente</h5>
                     <a href="#popup" class="btn btn-success mb-2" >Aceptar</a>
 
                 </div>
@@ -99,7 +99,7 @@
                 <h5 class="card-header text-center ">Mensaje</h5>
                 <div class="card-body">
                     <h5 class="card-title p-2"></h5>
-                    <a href="#popup"  class="btn btn-success mb-2" >No se ha podido eliminar al participante</a>
+                    <a href="#popup"  class="btn btn-success mb-2" >No se ha podido eliminar el Pais</a>
 
                 </div>
             </div>

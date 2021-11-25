@@ -1,4 +1,3 @@
-
 <%@ page import="com.example.lab_9.Dtos.DtoUniversidad" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean type="java.util.ArrayList<com.example.lab_9.Dtos.DtoUniversidad>" scope="request" id="listuniversidad"/>
@@ -21,30 +20,30 @@
                 <div class="w-75">
 
                     <div class="my-2">
-                        <a href="<%=request.getContextPath()%>/universidades?action=formCrear" class="btn btn-info">Añadir Universidad</a>
+                        <a href="<%=request.getContextPath()%>/universidades?action=formCrear" class="btn btn-info">Añadir
+                            Universidad</a>
                     </div>
                     <div class="tabla">
                         <table class="table table-dark table-transparent table-hover">
                             <thead>
                                 <tr>
-                                    <th><a href="<%=request.getContextPath()%>/universidades?order=nombre">Nombre</a></th>
+                                    <th><a href="<%=request.getContextPath()%>/universidades?order=nombre">Nombre</a>
+                                    </th>
                                     <th><a href="<%=request.getContextPath()%>/universidades?order=pais">País</a></th>
-                                    <th><a href="<%=request.getContextPath()%>/universidades?order=ranking">Ranking</a></th>
-                                    <th><a href="<%=request.getContextPath()%>/universidades?order=alumnos">Número de Alumnos</a></th>
+                                    <th><a href="<%=request.getContextPath()%>/universidades?order=ranking">Ranking</a>
+                                    </th>
+                                    <th><a href="<%=request.getContextPath()%>/universidades?order=alumnos">Número de
+                                        Alumnos</a></th>
                                     <th>Foto de la universidad</th>
                                 </tr>
                             </thead>
-
-
-
                             <%
-                                for (DtoUniversidad universidad: listuniversidad) {
+                                for (DtoUniversidad universidad : listuniversidad) {
                             %>
-                                <% switch (universidad.getUniversidad().getPais().getContinente().getContinente()) {
-                                    case "Africa": %>
+                            <% switch (universidad.getUniversidad().getPais().getContinente().getContinente()) {
+                                case "Africa": %>
                             <!--style="color: red;font-weight: bold"-->
                             <tr>
-
                                 <td class="bg-primary"><%=universidad.getUniversidad().getNombre()%>
                                 </td>
                                 <td class="bg-primary"><%=universidad.getUniversidad().getPais().getNombre()%>
@@ -53,7 +52,8 @@
                                 </td>
                                 <td class="bg-primary"><%=universidad.getAlumnos()%>
                                 </td>
-                                <td class="bg-primary"><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
+                                <td class="bg-primary"><img src="<%=universidad.getUniversidad().getFoto()%>"
+                                                            width="100">
                                 </td>
                                 <td class="bg-primary">
                                     <a href="<%=request.getContextPath()%>/universidades?action=formEditar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
@@ -62,9 +62,8 @@
                                     <a href="<%=request.getContextPath()%>/universidades?action=borrar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
                                 <td class="bg-primary">
-                                    <a href="<%=request.getContextPath()%>/universidades?action=alumnos&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                    <a href="<%=request.getContextPath()%>/alumnos?action=listar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary">Ver alumnos</a></td>
-
                             </tr>
                             <%
                                     break;
@@ -72,7 +71,6 @@
                             %>
                             <!--style="color: purple;font-weight: bold"-->
                             <tr>
-
                                 <td class="bg-success"><%=universidad.getUniversidad().getNombre()%>
                                 </td>
                                 <td class="bg-success"><%=universidad.getUniversidad().getPais().getNombre()%>
@@ -81,7 +79,8 @@
                                 </td>
                                 <td class="bg-success"><%=universidad.getAlumnos()%>
                                 </td>
-                                <td class="bg-success"><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
+                                <td class="bg-success"><img src="<%=universidad.getUniversidad().getFoto()%>"
+                                                            width="100">
                                 </td>
                                 <td class="bg-success">
                                     <a href="<%=request.getContextPath()%>/universidades?action=formEditar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
@@ -90,9 +89,8 @@
                                     <a href="<%=request.getContextPath()%>/universidades?action=borrar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
                                 <td class="bg-success">
-                                    <a href="<%=request.getContextPath()%>/universidades?action=alumnos&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                    <a href="<%=request.getContextPath()%>/alumnos?action=listar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary">Ver alumnos</a></td>
-
                             </tr>
                             <%
                                     break;
@@ -100,7 +98,6 @@
                             %>
                             <!--style="color: green;font-weight: bold"-->
                             <tr>
-
                                 <td class="bg-warning"><%=universidad.getUniversidad().getNombre()%>
                                 </td>
                                 <td class="bg-warning"><%=universidad.getUniversidad().getPais().getNombre()%>
@@ -109,7 +106,8 @@
                                 </td>
                                 <td class="bg-warning"><%=universidad.getAlumnos()%>
                                 </td>
-                                <td class="bg-warning"><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
+                                <td class="bg-warning"><img src="<%=universidad.getUniversidad().getFoto()%>"
+                                                            width="100">
                                 </td>
                                 <td class="bg-warning">
                                     <a href="<%=request.getContextPath()%>/universidades?action=formEditar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
@@ -118,7 +116,7 @@
                                     <a href="<%=request.getContextPath()%>/universidades?action=borrar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
                                 <td class="bg-warning">
-                                    <a href="<%=request.getContextPath()%>/universidades?action=alumnos&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                    <a href="<%=request.getContextPath()%>/alumnos?action=listar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary">Ver alumnos</a></td>
                             </tr>
                             <%
@@ -136,7 +134,8 @@
                                 </td>
                                 <td class="bg-danger"><%=universidad.getAlumnos()%>
                                 </td>
-                                <td class="bg-danger"><img src="<%=universidad.getUniversidad().getFoto()%>" width="100">
+                                <td class="bg-danger"><img src="<%=universidad.getUniversidad().getFoto()%>"
+                                                           width="100">
                                 </td>
                                 <td class="bg-danger">
                                     <a href="<%=request.getContextPath()%>/universidades?action=formEditar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
@@ -145,7 +144,7 @@
                                     <a href="<%=request.getContextPath()%>/universidades?action=borrar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
                                 <td class="bg-danger">
-                                    <a href="<%=request.getContextPath()%>/universidades?action=alumnos&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                    <a href="<%=request.getContextPath()%>/alumnos?action=listar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary">Ver alumnos</a></td>
                             </tr>
                             <%
@@ -172,15 +171,13 @@
                                     <a href="<%=request.getContextPath()%>/universidades?action=borrar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-danger"><span class="fa fa-trash"></span></a></td>
                                 <td class="bg-info">
-                                    <a href="<%=request.getContextPath()%>/universidades?action=alumnos&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
+                                    <a href="<%=request.getContextPath()%>/alumnos?action=listar&id_uni=<%=universidad.getUniversidad().getIdUniversidad()%>"
                                        class="btn btn-primary">Ver alumnos</a></td>
                             </tr>
                             <%
                                         break;
                                 }
                             %>
-
-
                             <%
                                 }
                             %>
@@ -190,27 +187,24 @@
                 </div>
             </div>
         </div>
-
-
-
         <% if (mensaje.equals("ok")) {%>
-        <nav id="popup"  class="overlay">
+        <nav id="popup" class="overlay">
             <div class=" popup card text-center " style="background-color: white">
                 <h5 class="card-header text-center ">Mensaje</h5>
                 <div class="card-body">
                     <h5 class="card-title p-2">Se ha eliminado la universidad correctamente</h5>
-                    <a href="#popup" class="btn btn-success mb-2" >Aceptar</a>
+                    <a href="#popup" class="btn btn-success mb-2">Aceptar</a>
 
                 </div>
             </div>
         </nav>
-        <% } else if (mensaje.equals("error")){%>
-        <nav id="popup"  class="overlay">
+        <% } else if (mensaje.equals("error")) {%>
+        <nav id="popup" class="overlay">
             <div class=" popup card text-center " style="background-color: white">
                 <h5 class="card-header text-center ">Mensaje</h5>
                 <div class="card-body">
                     <h5 class="card-title p-2"></h5>
-                    <a href="#popup"  class="btn btn-success mb-2" >No se ha podido eliminar la universidad</a>
+                    <a href="#popup" class="btn btn-success mb-2">No se ha podido eliminar la universidad</a>
 
                 </div>
             </div>

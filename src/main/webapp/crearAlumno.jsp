@@ -23,7 +23,7 @@
 
                     <form method="POST" action="<%=request.getContextPath()%>/alumnos?action=crear&id_uni=<%=iduniversidad%>">
                         <div class="form-group">
-                            <label class="form-label"><b>Participantes</b></label>
+                            <label class="for m-label"><b>Participantes</b></label>
                             <select class="form-select form-select-sm" name="participante">
                                 <% for (BParticipante part : listaparticip) { %>
                                 <option value="<%=part.getIdParticipante()%>"><%=part.getNombre() + " " +part.getApellido() %>
@@ -41,7 +41,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Enviar</button>
-                        <a class="btn btn-danger" href="<%=request.getContextPath()%>/alumnos">Cancelar</a>
+                        <a class="btn btn-danger" href="<%=request.getContextPath()%>/alumnos?id_uni=<%=iduniversidad%>">Cancelar</a>
                     </form>
                 </div>
             </div>

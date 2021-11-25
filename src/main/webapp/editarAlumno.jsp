@@ -1,10 +1,10 @@
-
 <%@ page import="com.example.lab_9.Beans.BParticipante" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="mensaje" scope="request" type="java.lang.String" class="java.lang.String"/>
-<jsp:useBean type="java.util.ArrayList<com.example.lab_9.Beans.BParticipante>" scope="request" id="listaparticip"/>
-<jsp:useBean id="iduniversidad" scope="request" type="java.lang.String" class="java.lang.String"/>
+<%--jsp:useBean type="java.util.ArrayList<com.example.lab_9.Beans.BParticipante>" scope="request" id="listaparticip"/--%>
+<jsp:useBean id="iduniversidad" scope="request" type="java.lang.Integer"/>
 <jsp:useBean id="alumno" scope="request" type="com.example.lab_9.Beans.BParticipante"/>
+
 <html>
     <jsp:include page="/static/head.jsp">
         <jsp:param name="title" value="Editar Alumno"/>
@@ -21,7 +21,7 @@
             <div class="d-flex justify-content-center">
                 <div class="w-75">
 
-                    <form method="POST" action="<%=request.getContextPath()%>/alumnos?action=update&id_alum=<%=alumno.getIdParticipante()%>">
+                    <form method="POST" action="<%=request.getContextPath()%>/alumnos?action=update&id_alum=<%=alumno.getIdParticipante()%>&id_uni=<%=iduniversidad%>">
                         <div class="form-group">
                             <label for="nombrealumno"><b>Nombre</b></label>
                             <input class="form-control" type="text" name="nombrealumno" id="nombrealumno" value="<%=alumno.getNombre()%>">
@@ -45,7 +45,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Enviar</button>
-                        <a class="btn btn-danger" href="<%=request.getContextPath()%>/alumnos">Cancelar</a>
+                        <a class="btn btn-danger" href="<%=request.getContextPath()%>/alumnos?id_uni=<%=iduniversidad%>">Cancelar</a>
                     </form>
                 </div>
             </div>

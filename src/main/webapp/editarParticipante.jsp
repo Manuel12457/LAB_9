@@ -60,7 +60,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="form-label"><b>Nacionalidad</b></label>
+                            <label class="form-label"><b>Género</b></label>
                             <select class="form-select form-select-sm" name="generoparticipante">
 
                                 <option value="M" <%=participante.getGenero().equals("M") ? "selected" : ""%>>Hombre</option>
